@@ -1,0 +1,18 @@
+- Fix borders, right and bottom
+
+- Make shift-control v access Visual Block
+
+- Remove borders from splits
+
+- When moving with ctrl, set <CR> as a stop
+
+- Make undo be ctlr-z instead of u, and make <S-leader>q be ctrl-z
+
+- Make holding Shift access Visual Mode and releasing it close Visual Mode. Make this command accessible from both insert and normal modes. 
+
+- Make a certain directory remember the buffers you had last opened, and have them open once you open once you do nvim . 
+
+-Color Scheme: 
+
+    -A : Find out what the 16 colors mean, and how to add them as custom vim theme, in order to recreate Belafonte Day
+    -B : Make moonfly your dark theme and belafonte day your light theme! 
