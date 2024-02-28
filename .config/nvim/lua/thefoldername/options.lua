@@ -22,12 +22,14 @@ numberwidth = 1,
 signcolumn = "yes",
 wrap = false,
 scrolloff = 8,
-sidescrolloff = 8
-
+sidescrolloff = 8,
 }
 
-vim.opt.shortmess:append "c"
 
+vim.opt.shortmess:append "c"
+vim.opt.fillchars:append "vert: "
+vim.opt.fillchars:append "horiz: "
+vim.opt.fillchars:append "eob: "
 
 for key, value in pairs(options) do
     vim.opt[key] = value
@@ -36,3 +38,4 @@ end
 --vim.cmd([[colorscheme gruvbox]])
 
 vim.cmd([[colorscheme moonfly]])
+vim.cmd("highlight WinSeparator gui=reverse guifg=#080808")
