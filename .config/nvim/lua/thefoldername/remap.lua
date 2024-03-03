@@ -2,7 +2,6 @@ local map = vim.api.nvim_set_keymap
 local maps_ = vim.keymap.set --used to map multiple modes at once
 local opts = { noremap = true, silent = true }
 
-map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 --write and exit remaps
@@ -14,7 +13,7 @@ map("n", "<leader>s", "<Cmd>w!<CR>", opts)
 
 map("i", "<A-i>", "<ESC>", opts)
 map("i", "<A-a>", "<ESC>", opts)
-map("v", "<v>", "<ESC>", opts)
+map("x", "v", "<ESC>", opts)
 
 --map block select v mode
 
@@ -51,14 +50,21 @@ map("v", "<A-k>", ":m '<-2<CR>==gv", opts)
 
 --[END]
 
---map quit immediately
+--map quit
 
-maps_({"n", "v"}, "<leader>qt", "<C-z>", opts)
+--vim.keymap.del("n", "<Cmd>lua vim.diagnostic.setloclist()<CR>", {buffer = true})
+
+maps_({"n", "v"}, "<leader>q", "<Cmd>q<CR>", opts)
+maps_({"n", "v"}, "<leader>!q", "<C-z>", opts)
 
 --map undo and redo
 
 maps_({"i", "n", "v"}, "<C-z>", "<Cmd>u<CR>", opts)
---maps_({"i", "n", "v"}, "<C-S-z>", "<C-r>", opts)
+maps_({"i", "n", "v"}, "<C-S-z>", "<C-r>", opts)
+
+--Copy to system Clipboard
+
+maps_({"n", "v"}, "<C-c>", '"+y', opts)
 
 --When pasting yanked text over selection and removing said selection, not overriding the register storing the yank with the now deleted text 
 

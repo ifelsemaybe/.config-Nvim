@@ -1,10 +1,14 @@
 - Add debugers for the languages you want to use (Python, C/C++, C#, Java, JS/TS)
 
-- Just Testing git
+- Make it so that when I press <leader>q whilst nvim-tree is selected, it closes nvim 
 
-- Fix Redo maping
+- When in insert, cursor is hidden behind vertical indent lines
 
-- Fix clipboard/Copy with <C-c> 
+- Install Plugins:
+
+    -A : colorizer
+
+    -B : bufferline (could replace barbar plugin)
 
 - Make holding Shift access Visual Mode and releasing it close Visual Mode. Make this command accessible from both insert and normal modes. 
 
