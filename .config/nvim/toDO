@@ -1,10 +1,8 @@
-- Make shift-control v access Visual Block
-
 - Add debugers for the languages you want to use (Python, C/C++, C#, Java, JS/TS)
 
-- When moving with ctrl, set <CR> as a stop
+- Fix Redo maping
 
-- Make undo be ctlr-z instead of u, and make <S-leader>q be ctrl-z
+- Fix clipboard/Copy with <C-c> 
 
 - Make holding Shift access Visual Mode and releasing it close Visual Mode. Make this command accessible from both insert and normal modes. 
 
@@ -12,4 +10,4 @@
 
 -Color Scheme: 
 
-    -B : Make moonfly your dark theme and belafonte day your light theme! Would be cool to switch between them as the day passes to night and vice versa. 
+    -B : Make moonfly your dark theme and belafonte day your light theme! Would be cool to switch between them as the day passes to night and vice versa.

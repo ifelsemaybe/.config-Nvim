@@ -199,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["readline.nvim"] = {
+    loaded = true,
+    path = "/home/alex/.local/share/nvim/site/pack/packer/start/readline.nvim",
+    url = "https://github.com/assistcontrol/readline.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/telescope.nvim",

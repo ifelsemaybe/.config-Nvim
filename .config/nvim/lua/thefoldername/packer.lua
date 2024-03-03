@@ -5,74 +5,85 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
-use { "ellisonleao/gruvbox.nvim" }
+    use { "ellisonleao/gruvbox.nvim" }
 
-use {"bluz71/vim-moonfly-colors", as = "moonfly"}
+    use {"bluz71/vim-moonfly-colors", as = "moonfly"}
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.5',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    use {
+	    
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+	    -- or                            , branch = '0.1.x',
+	    requires = { {'nvim-lua/plenary.nvim'} }
+
+    }
 
 
-   use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
+    use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
  
-   use("lewis6991/gitsigns.nvim")
+    use("lewis6991/gitsigns.nvim")
 
-   use 'nvim-tree/nvim-web-devicons'
+    use 'nvim-tree/nvim-web-devicons'
 
-   use 'romgrk/barbar.nvim'
+    use 'romgrk/barbar.nvim'
 
-   use "lukas-reineke/indent-blankline.nvim"
+    use "lukas-reineke/indent-blankline.nvim"
 
-   use 'MunifTanjim/nui.nvim'
+    use 'MunifTanjim/nui.nvim'
 
-   use {
-       'nvim-tree/nvim-tree.lua',
-       requires = {
+    use {
+        
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+
            'nvim-tree/nvim-web-devicons', -- optional
-       },
-   }
+        
+        },
+    }
 
-  use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    use {
+    
+        'nvim-lualine/lualine.nvim',
+        
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
 
 
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   
-     require("toggleterm").setup()
+        require("toggleterm").setup()
   
-  end}
+    end}
 
 
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/nvim-cmp" -- The completion plugin
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lua"
 
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-
-  use "neovim/nvim-lspconfig"
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
+    use "L3MON4D3/LuaSnip" --snippet engine
+    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 
-  use "windwp/nvim-autopairs"
+    use "neovim/nvim-lspconfig"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+    
 
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+    use "windwp/nvim-autopairs"
 
-map("n", "<leader>ps", "<Cmd>PackerSync<CR>", opts)
+    use "assistcontrol/readline.nvim"
 
-  end)
+    
+    local map = vim.api.nvim_set_keymap
+    
+    local opts = { noremap = true, silent = true }
+
+    map("n", "<leader>ps", "<Cmd>PackerSync<CR>", opts)
+
+end)
 

@@ -107,7 +107,7 @@ require'barbar'.setup {
     -- Or, specify the text used for the offset:
     undotree = {text = 'undotree'},
     -- Or, specify the event which the sidebar executes when leaving:
-    ['neo-tree'] = {event = 'BufWipeout'},
+    ['nvim-tree'] = {event = 'BufWinLeave'},
     -- Or, specify both
     Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
   },

@@ -16,6 +16,15 @@ map("i", "<A-i>", "<ESC>", opts)
 map("i", "<A-a>", "<ESC>", opts)
 map("v", "<v>", "<ESC>", opts)
 
+--map block select v mode
+
+map("n", "<C-S-v>", "<C-v>", opts)
+
+--map i to enter from right of cursor and a to enter from left of cursor
+
+map("n", "i", "a", opts)
+map("n", "a", "i", opts)
+
 --window navigation remaps
 
 maps_({"i", "n", "v"}, "<C-Up>", "<Cmd>wincmd k<CR>", opts)
@@ -25,21 +34,31 @@ maps_({"i", "n", "v"}, "<C-Right>", "<Cmd>wincmd l<CR>", opts)
 
 --tab shifting selected text right and left remaps
 
-map("v", ",", "<gv", opts) --left
-map("v", ".", ">gv", opts) --right
+map("v", "<A-,>", "<gv", opts) --left
+map("v", "<A-.>", ">gv", opts) --right
 
+maps_({"i", "n"}, "<A-,>", "<Cmd><<CR>", opts)
+maps_({"i", "n"}, "<A-.>", "<Cmd>><CR>", opts)
 
 --[BEGIN] below worked for me, might not work for you, I recommend checking out https://www.youtube.com/watch?v=435-amtVYJ8&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&index=5 ~@11:04
 
 --moving selected text up and down file
 
-map("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)                                                                                            
-map("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)                                                                                            
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)                                                                                             
+map("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
+map("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 map("v", "<A-k>", ":m '<-2<CR>==gv", opts)
 
 --[END]
 
+--map quit immediately
+
+maps_({"n", "v"}, "<leader>qt", "<C-z>", opts)
+
+--map undo and redo
+
+maps_({"i", "n", "v"}, "<C-z>", "<Cmd>u<CR>", opts)
+--maps_({"i", "n", "v"}, "<C-S-z>", "<C-r>", opts)
 
 --When pasting yanked text over selection and removing said selection, not overriding the register storing the yank with the now deleted text 
 
@@ -49,17 +68,33 @@ map("v", "p", '"_dP', opts)
 
 map("n", "<Esc>", "<Cmd>noh<CR>", opts)
 
+--map go to end/begining of a line
+
+maps_({"i", "n", "v"}, "<C-,>", "<Home>", opts)
+maps_({"i", "n", "v"}, "<C-.>", "<End>", opts)
+
+--map ),} to go up and (,{ to go down
+
+maps_({"n", "v"}, ")", "(", opts)
+maps_({"n", "v"}, "(", ")", opts)
+maps_({"n", "v"}, "}", "{", opts)
+maps_({"n", "v"}, "{", "}", opts)
+
+map("i", "<A-0>", "<Cmd>normal )<CR>", opts)
+map("i", "<A-9>", "<Cmd>normal (<CR>", opts)
+map("i", "<A-]>", "<Cmd>normal }<CR>", opts)
+map("i", "<A-[>", "<Cmd>normal {<CR>", opts)
+
 --map control for insert, normal, visual modes and regular movement for insert to hjkl in insert mode
 
-maps_({"i", "n", "v"}, "<C-h>", "<C-left>", opts)
-maps_({"i", "n", "v"}, "<C-j>", "<C-down>", opts)
-maps_({"i", "n", "v"}, "<C-k>", "<C-up>", opts)
-maps_({"i", "n", "v"}, "<C-l>", "<C-right>", opts)
+local readline = require "readline"
+
+maps_({"i", "n", "v"}, "<C-h>", readline.backward_word, opts)
+maps_({"i", "n", "v"}, "<C-j>", "<Cmd>normal {<CR>", opts)
+maps_({"i", "n", "v"}, "<C-k>", "<Cmd>normal }<CR>", opts)
+maps_({"i", "n", "v"}, "<C-l>", readline.forward_word, opts)
 
 map("i", "<A-h>", "<left>", opts)
 map("i", "<A-j>", "<down>", opts)
 map("i", "<A-k>", "<up>", opts)
 map("i", "<A-l>", "<right>", opts)
-
-
-
