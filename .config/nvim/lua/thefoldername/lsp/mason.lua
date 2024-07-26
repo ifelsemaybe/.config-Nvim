@@ -1,8 +1,10 @@
 local servers = {
+    "tsserver",
     "jsonls",
     "lua_ls",
     "pyright",
-    "clangd"
+    "clangd",
+    "omnisharp"
 }
 
 

@@ -1,19 +1,16 @@
-- Add debugers for the languages you want to use (Python, C/C++, C#, Java, JS/TS)
-
 - Make it so that when I press <leader>q whilst nvim-tree is selected, it closes nvim 
 
-- When in insert, cursor is hidden behind vertical indent lines
+- When in insert, cursor is hidden behind vertical indent lines. I fixed it temporaly with option cursorline = true.
+  Would need a function that detects its scope and reverses the cursor's color for a less naive fix.
+
+-I've noticed when I autocomplete it indents by 2spaces, see if I can switch it to 4 to match my tab indents.
 
 - Install Plugins:
 
-    -A : colorizer
-
-    -B : bufferline (could replace barbar plugin)
-
-- Make holding Shift access Visual Mode and releasing it close Visual Mode. Make this command accessible from both insert and normal modes. 
-
-- Make a certain directory remember the buffers you had last opened, and have them open once you open once you do nvim . 
+    -A : bufferline (could replace barbar plugin)
 
 -Color Scheme: 
 
-    -B : Make moonfly your dark theme and belafonte day your light theme! Would be cool to switch between them as the day passes to night and vice versa.
+   -A : Make moonfly your dark theme and belafonte day your light theme! Would be cool to switch between them as the day passes to night and vice versa.
+
+-When you click space (in Insert) after a line which is a comment, it tries to autocomplete another comment. It is annoying.

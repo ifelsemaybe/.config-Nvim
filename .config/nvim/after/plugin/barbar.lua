@@ -41,10 +41,10 @@ require'barbar'.setup {
     button = '',
     -- Enables / disables diagnostic symbols
     diagnostics = {
-      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
+      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = ''},
       [vim.diagnostic.severity.WARN] = {enabled = false},
       [vim.diagnostic.severity.INFO] = {enabled = false},
-      [vim.diagnostic.severity.HINT] = {enabled = true},
+      [vim.diagnostic.severity.HINT] = {enabled = false},
     },
     gitsigns = {
       added = {enabled = true, icon = '+'},
@@ -157,9 +157,9 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
-map('n', '<leader>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<leader>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<leader>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<leader>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+-- map('n', '<leader>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+-- map('n', '<leader>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+-- map('n', '<leader>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+-- map('n', '<leader>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 

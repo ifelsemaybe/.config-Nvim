@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use { "ellisonleao/gruvbox.nvim" }
+    use "ellisonleao/gruvbox.nvim"
 
     use {"bluz71/vim-moonfly-colors", as = "moonfly"}
 
@@ -18,11 +18,10 @@ return require('packer').startup(function(use)
 	    requires = { {'nvim-lua/plenary.nvim'} }
 
     }
-
-
-    use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
  
-    use("lewis6991/gitsigns.nvim")
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    use "lewis6991/gitsigns.nvim"
 
     use 'nvim-tree/nvim-web-devicons'
 
@@ -47,7 +46,7 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-}
+    }
 
 
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
@@ -78,7 +77,14 @@ return require('packer').startup(function(use)
 
     use "assistcontrol/readline.nvim"
 
+    use "norcalli/nvim-colorizer.lua"
+
+    use "rmagatti/auto-session"
+
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     
+    use 'jbyuki/one-small-step-for-vimkind'
+
     local map = vim.api.nvim_set_keymap
     
     local opts = { noremap = true, silent = true }

@@ -6,7 +6,7 @@ end
 toggleterm.setup({
 
 	size = 20,
-	open_mapping = [[<leader>\]],
+	open_mapping = [[\]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
@@ -30,8 +30,8 @@ toggleterm.setup({
 
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<A-i>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<A-a>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-Left>', [[<Cmd>wincmd h<CR>]], opts)
   vim.keymap.set('t', '<C-Down>', [[<Cmd>wincmd j<CR>]], opts)
   vim.keymap.set('t', '<C-Up>', [[<Cmd>wincmd k<CR>]], opts)

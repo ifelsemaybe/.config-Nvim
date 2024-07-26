@@ -24,6 +24,9 @@ map("n", "<C-S-v>", "<C-v>", opts)
 map("n", "i", "a", opts)
 map("n", "a", "i", opts)
 
+maps_({"n", "x"}, "<S-i>", "<S-a>", opts)
+maps_({"n", "x"}, "<S-a>", "<S-i>", opts)
+
 --window navigation remaps
 
 maps_({"i", "n", "v"}, "<C-Up>", "<Cmd>wincmd k<CR>", opts)
@@ -55,7 +58,6 @@ map("v", "<A-k>", ":m '<-2<CR>==gv", opts)
 --vim.keymap.del("n", "<Cmd>lua vim.diagnostic.setloclist()<CR>", {buffer = true})
 
 maps_({"n", "v"}, "<leader>q", "<Cmd>q<CR>", opts)
-maps_({"n", "v"}, "<leader>!q", "<C-z>", opts)
 
 --map undo and redo
 
