@@ -3,8 +3,6 @@
 - When in insert, cursor is hidden behind vertical indent lines. I fixed it temporaly with option cursorline = true.
   Would need a function that detects its scope and reverses the cursor's color for a less naive fix.
 
--I've noticed when I autocomplete it indents by 2spaces, see if I can switch it to 4 to match my tab indents.
-
 - Install Plugins:
 
     -A : bufferline (could replace barbar plugin)
@@ -14,3 +12,11 @@
    -A : Make moonfly your dark theme and belafonte day your light theme! Would be cool to switch between them as the day passes to night and vice versa.
 
 -When you click space (in Insert) after a line which is a comment, it tries to autocomplete another comment. It is annoying.
+
+-remove <leader>-g shortcut + lazy-git plugin
+
+-Make it so tab-ing autocompletes fully (Get rid of S-tab)
+
+-In nvim-tree, change symbols for a changed file and for gitignored files
+
+-When going up with the cursor, it doesn't indent automaticaly to the line's indent (needs more observation for specific scenario).

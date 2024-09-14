@@ -46,47 +46,51 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ["<C-e>"] = cmp.mapping {
+    ["<A-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
+    ["<S-CR>"] = cmp.mapping.select_prev_item(),
+    ["<CR>"] = cmp.mapping.select_next_item(),
     ["<Tab>"] = cmp.mapping.confirm { select = true },
-    ["<CR>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expandable() then
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+--      if cmp.selectable() then
+--        cmp.mapping.confirm{select = true}
+      if luasnip.expandable() then
+        print("Hello expandable!")
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+       print("Hello ex or jumpable!")
+       luasnip.expand_or_jump()
       elseif check_backspace() then
+        print("Hello backspace!")
         fallback()
       else
+        print("Hello Nothing!")
         fallback()
       end
     end, {
       "i",
       "s",
     }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+--    ["<S-Tab>"] = cmp.mapping(function(fallback)
+--      if cmp.visible() then
+--        cmp.select_prev_item()
+--      elseif luasnip.jumpable(-1) then
+--        luasnip.jump(-1)
+--      else
+--        fallback()
+--      end
+--    end, {
+--      "i",
+--      "s",
+--    }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -119,7 +123,52 @@ cmp.setup {
     documentation = cmp.config.window.bordered(),
   },
   experimental = {
-    ghost_text = true,
+    
     native_menu = false,
+
+    ghost_text = true
+
   },
 }
+
+
+--Turn off completion when in the middle of editing a word
+
+
+-- Consolidated list of characters that should toggle ghost_text
+
+local toggle_chars = {
+'"', "'", '`', '<', '>', '{', '}', '[', ']', '(', ')', ' ', ''
+}
+
+local cmp_config = require('cmp.config')
+
+local function toggle_cmp()
+    
+    if vim.api.nvim_get_mode().mode ~= "i" then
+        return
+    end
+
+    -- Get the current cursor column and line content
+    local cursor_col = vim.fn.col('.')  -- Get cursor column
+    local line = vim.fn.getline('.')    -- Get current line content
+
+    -- Get the character after the cursor
+    local char_after = line:sub(cursor_col, cursor_col)
+
+    -- Check if the character after the cursor is in the toggle list (pair characters, spaces, or end of line)
+    local should_enable_cmp = vim.tbl_contains(toggle_chars, char_after)
+
+    -- Enable or disable cmp based on the condition
+
+    cmp_config.set_onetime({
+            
+        enabled = should_enable_cmp
+
+    })
+
+end
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "CursorMovedI" }, {
+    callback = toggle_cmp,
+})

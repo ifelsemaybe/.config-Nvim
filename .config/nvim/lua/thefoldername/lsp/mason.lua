@@ -1,10 +1,10 @@
 local servers = {
-    "tsserver",
-    "jsonls",
-    "lua_ls",
-    "pyright",
-    "clangd",
-    "omnisharp"
+    "tsserver", --typescript
+    "jsonls", --json files
+    "lua_ls", --lua
+    "pyright", --python
+    "clangd", --C/C++
+    "omnisharp" --C#
 }
 
 
