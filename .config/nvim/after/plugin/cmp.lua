@@ -138,7 +138,7 @@ cmp.setup {
 -- Consolidated list of characters that should toggle ghost_text
 
 local toggle_chars = {
-'"', "'", '`', '<', '>', '{', '}', '[', ']', '(', ')', ' ', ''
+'"', "'", '`', '<', '>', '{', '}', '[', ']', '(', ')', ' ', '', ',', ';', '.'
 }
 
 local cmp_config = require('cmp.config')
