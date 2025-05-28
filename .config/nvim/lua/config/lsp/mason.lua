@@ -30,7 +30,7 @@ require("mason-lspconfig").setup({
 local lspconfig = require("lspconfig")
 
 local opts = {}
-local handlers_pth = "thefoldername.lsp.handlers"
+local handlers_pth = "config.lsp.handlers"
 
 
 for _, server in pairs(servers) do

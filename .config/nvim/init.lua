@@ -1,2 +1,2 @@
-require("thefoldername")
-require ("thefoldername.lsp.mason")
+require("config")
+require ("config.lsp.mason")

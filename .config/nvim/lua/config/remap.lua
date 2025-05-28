@@ -2,8 +2,6 @@ local map = vim.api.nvim_set_keymap
 local maps_ = vim.keymap.set --used to map multiple modes at once
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = " "
-
 --write and exit remaps
 
 map("n", "<leader>e", "<Cmd>Ex<CR>", opts)
