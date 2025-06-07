@@ -1,5 +1,5 @@
 local servers = {
-    "tsserver", --typescript
+    "ts_ls", --typescript
     "jsonls", --json files
     "lua_ls", --lua
     "pyright", --python
