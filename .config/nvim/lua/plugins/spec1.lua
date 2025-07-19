@@ -26,6 +26,11 @@ return {
 		build = ":TSUpdate"
 	},
 
+    { --Have the ability to quickly delete functions and classes
+
+        "nvim-treesitter/nvim-treesitter-textobjects"
+    },
+
 	{ --Adding git diff symbols in margin
 
 		"lewis6991/gitsigns.nvim"

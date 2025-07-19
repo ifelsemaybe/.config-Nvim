@@ -18,4 +18,23 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+        ['ai'] = '@conditional.outer',
+        ['ii'] = '@conditional.inner',
+        ['al'] = '@loop.outer',
+        ['il'] = '@loop.inner',
+        ['a<C-/>'] = '@comment.outer',
+        ['i<C-/>'] = '@comment.inner' --not supported for C/CPP or C#
+      },
+    },
+  }
 }
