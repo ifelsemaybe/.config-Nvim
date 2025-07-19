@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local maps_ = vim.keymap.set --used to map multiple modes at once
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true}
 
 --write and exit remaps
 

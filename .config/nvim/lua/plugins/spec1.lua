@@ -167,6 +167,10 @@ return {
 	{ --Allows you to debug lua code inside of a running nvim instance
 
 		"jbyuki/one-small-step-for-vimkind"
-	}
+	},
+    
+    { --Comment plugin (allows for inline comments)
 
+        'numToStr/Comment.nvim',
+    }
 }
