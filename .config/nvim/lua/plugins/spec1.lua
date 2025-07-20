@@ -55,7 +55,7 @@ return {
 	},
 
 	{ --UI component library
-	
+
 		"MunifTanjim/nui.nvim"
 	},
 
@@ -173,7 +173,7 @@ return {
 
 		"jbyuki/one-small-step-for-vimkind"
 	},
-    
+
     { --Comment plugin (allows for inline comments)
 
         'numToStr/Comment.nvim',

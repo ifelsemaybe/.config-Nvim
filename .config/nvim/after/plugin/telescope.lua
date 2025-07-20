@@ -1,6 +1,28 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<C-f>', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end)
+local actions = require('telescope.actions')
+
+--Telecope remembering my search once I do live_grep
+
+local once = true
+
+vim.keymap.set('n', '<leader>f', function ()
+                                    if (once)
+                                    then
+                                        builtin.live_grep()
+                                        once = false
+                                    else
+                                        builtin.resume()
+                                    end
+                                 end)
+
+--Exiting Telescope with esc when I'm in insert mode
+
+require("telescope").setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
