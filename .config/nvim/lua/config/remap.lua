@@ -1,4 +1,5 @@
 local map = vim.api.nvim_set_keymap
+local unmap = vim.api.nvim_del_keymap
 local maps_ = vim.keymap.set --used to map multiple modes at once
 local opts = { noremap = true, silent = true}
 
@@ -104,3 +105,39 @@ map("i", "<A-h>", "<left>", opts)
 map("i", "<A-j>", "<down>", opts)
 map("i", "<A-k>", "<up>", opts)
 map("i", "<A-l>", "<right>", opts)
+
+--remap search for word under cursor (*, #)
+
+function unmapAll()
+    
+    unmap("n", "j")
+    unmap("n", "k")
+    unmap("n", "<ESC>")
+
+    vim.cmd("noh")
+
+end
+
+function remapUnderCursorSearch(type)
+
+    if FirstPass == true then
+        FirstPass = false
+        return
+    end
+
+    vim.cmd("normal " .. type)
+    
+    if type == "*" then
+        map("n", "j", "n", opts)
+        map("n", "k", "N", opts)
+    end
+    if type == "#" then
+        map("n", "j", "N", opts)
+        map("n", "k", "n", opts)
+    end
+
+    map("n", "<ESC>", "<Cmd>lua unmapAll()<CR>", opts)
+end
+
+map("n", "<leader>j", "<Cmd>lua remapUnderCursorSearch(\"*\")<CR>", opts)
+map("n", "<leader>k", "<Cmd>lua remapUnderCursorSearch(\"#\")<CR>", opts)

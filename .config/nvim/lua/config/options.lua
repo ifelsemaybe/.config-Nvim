@@ -28,10 +28,14 @@ local options = {
 
 }
 
+for key, value in pairs(options) do
+    vim.opt[key] = value
+end
+
+--changing up listchars
+
 vim.opt.shortmess:append "c"
---vim.opt.fillchars:append "vert:|"
---vim.opt.fillchars:append "horiz:-"
---vim.o.fillchars = "vert:⎸,horiz:━"
+
 vim.opt.fillchars = {
   horiz = '━',
   horizup = '┻',
@@ -41,12 +45,22 @@ vim.opt.fillchars = {
   vertright = '┣',
   verthoriz = '╋',
 }
+
 vim.opt.fillchars:append "eob: "
+
 vim.opt.whichwrap:append "h,l,<,>,[,]" --ToDo: Add new char for whichwrap which links to Insert: "<A-h> and <A-l>" movements
 
-for key, value in pairs(options) do
-    vim.opt[key] = value
-end
+vim.api.nvim_create_augroup("FORMAT_OPTIONS", { clear = true })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = "FORMAT_OPTIONS",
+    pattern = { "*" },
+    callback = function ()
+        vim.opt.formatoptions:remove "r"
+    end,
+    desc = "Stop neovim from auto commenting after creating initial comment."
+})
+
+--Theme for neovim
 
 --vim.cmd([[colorscheme gruvbox]])
 
